@@ -12,12 +12,10 @@ pipeline {
             steps {
                 sh '''
                     echo "Building..."
-                    ls -la
                     node --version
                     npm --version
                     npm ci
                     npm run build
-                    ls -la
                 '''
             }
         }
@@ -32,13 +30,25 @@ pipeline {
                 sh '''
                     echo "Testing..."
                     test -f build/index.html
-                    npm test
+                    npm test || exit 1  # Fail the build if tests fail
                 '''
             }
         }
         stage('Deploy') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+            }
             steps {
-                echo 'Deploying...'
+                script {
+                    echo "Deploying to Netlify..."
+                    sh '''
+                        npm install netlify-cli --save-dev
+                        ./node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
+                    '''
+                }
             }
         }
     }
