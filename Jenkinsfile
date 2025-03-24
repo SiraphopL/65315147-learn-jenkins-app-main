@@ -65,9 +65,10 @@ pipeline {
 
     }
     post {
-    always {
-        node {
-            junit 'test-results.xml'
+        always {
+            node {
+                junit 'test-results.xml'
+            }
         }
     }
 }
