@@ -3,6 +3,6 @@ import App from './App';
 
 test('renders greeting message', () => {
   render(<App />);
-  const greetingElement = screen.getByText(/สวัสดีครับ ผมชื่อสิรภพ/i);
+  const greetingElement = screen.getByText(/👩‍🎓 นิสิต: Siraphop L./i);
   expect(greetingElement).toBeInTheDocument();
 });
