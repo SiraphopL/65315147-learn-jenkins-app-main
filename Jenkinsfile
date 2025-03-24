@@ -1,9 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18-alpine'
-            reuseNode true
-        }
+    agent any
+
+    tools {
+        nodejs 'NodeJS 18' // ตั้งชื่อ Node.js ตามที่คุณตั้งไว้ใน Jenkins
     }
 
     environment {
@@ -12,18 +11,6 @@ pipeline {
     }
 
     stages {
-        stage('Install Node.js') {
-            steps {
-                sh '''
-                    echo "Installing Node.js..."
-                    curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-                    apt-get install -y nodejs
-                    node -v
-                    npm -v
-                '''
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
@@ -40,7 +27,6 @@ pipeline {
             steps {
                 sh '''
                     npm install -g netlify-cli
-                    echo "Deploying to Netlify..."
                     netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
                 '''
             }
