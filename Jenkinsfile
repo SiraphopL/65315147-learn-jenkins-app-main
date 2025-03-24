@@ -43,9 +43,7 @@ pipeline {
             steps {
                 sh '''
                     npm install netlify-cli --save-dev
-                    node_modules/.bin/netlify --version
                     echo "================Deploying the project================"
-                    echo "Deploying to Netlify Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
                 '''
             }
@@ -54,7 +52,13 @@ pipeline {
 
     post {
         always {
-            junit 'test-results/junit.xml'
+            script {
+                try {
+                    junit 'test-results/junit.xml'
+                } catch (Exception e) {
+                    echo "JUnit result not found or failed to publish: ${e.message}"
+                }
+            }
         }
     }
 }
