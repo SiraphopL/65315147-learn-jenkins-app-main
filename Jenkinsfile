@@ -28,19 +28,14 @@ node {
         }
 
         stage('Deploy') {
-            steps {
-                script {
-                    withDockerContainer(image: 'node:18-alpine') {
-                        sh '''
-                        npm install netlify-cli --save-dev
-                        export NETLIFY_AUTH_TOKEN="YOUR_NETLIFY_AUTH_TOKEN"
-                        node_modules/.bin/netlify deploy --dir=build --prod --auth=$NETLIFY_AUTH_TOKEN --site=YOUR_NETLIFY_SITE_ID
-                        '''
-                    }
-             }
+            docker.image('node:18-alpine').inside {
+                echo "================Deploying the project================"
+                sh '''
+                    npm install netlify-cli --save-dev
+                    node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
+                '''
+            }
         }
-        }
-
     } finally {
         junit 'test-results/junit.xml'
     }
