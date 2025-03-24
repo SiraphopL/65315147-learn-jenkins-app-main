@@ -60,13 +60,13 @@ pipeline {
 
     post {
         always {
-            node {
-                script {
-                    if (fileExists('test-results/junit.xml')) {
-                        junit 'test-results/junit.xml'
-                    } else {
-                        echo 'No JUnit test result found. Skipping junit step.'
-                    }
+            script {
+                def reportExists = fileExists('test-results/junit.xml')
+                echo "JUnit report exists: ${reportExists}"
+                if (reportExists) {
+                    junit 'test-results/junit.xml'
+                } else {
+                    echo 'No JUnit test report found. Skipping test publishing.'
                 }
             }
         }
