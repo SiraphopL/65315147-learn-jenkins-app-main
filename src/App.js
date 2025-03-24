@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>👩‍🎓 นิสิต: Siraphop L.</h1>
-        <p>นักศึกษาวิศวกรรมซอฟต์แวร์ | DevOps & Frontend Enthusiast</p>
+        <h1>👩‍🎓 นิสิต: 65315147 นายสิรภพ เล็กกเลิศสุนทร</h1>
+        <p>คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์</p>
         <button onClick={() => setShowProjects(!showProjects)}>
           {showProjects ? 'ซ่อนโปรเจกต์ 👀' : 'แสดงโปรเจกต์ 📂'}
         </button>
@@ -27,7 +27,7 @@ function App() {
 
       <section className="section">
         <h2>📫 ติดต่อ</h2>
-        <p>Email: siraphop.student@example.com</p>
+        <p>Email: siraphopl65@nu.ac.th</p>
         <p>GitHub: <a href="https://github.com/SiraphopL" target="_blank" rel="noopener noreferrer">SiraphopL</a></p>
       </section>
 
