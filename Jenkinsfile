@@ -1,14 +1,12 @@
-pipeline {
-    agent any
-
+node {
     environment {
         NETLIFY_SITE_ID = '4084bc2b-2632-4a33-8aaa-4435cf4f995b'
         NETLIFY_AUTH = credentials('netlify-token')
     }
 
-    stages {
+    try {
         stage('Build') {
-            steps {
+            docker.image('node:18-alpine').inside {
                 echo "================Building the project================"
                 sh '''
                     node --version
@@ -20,7 +18,7 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
+            docker.image('node:18-alpine').inside {
                 echo "================Testing the project================"
                 sh '''
                     test -f build/index.html
@@ -30,19 +28,15 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
+            docker.image('node:18-alpine').inside {
                 echo "================Deploying the project================"
                 sh '''
                     npm install netlify-cli --save-dev
-                    ./node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
+                    node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
                 '''
             }
         }
-    }
-
-    post {
-        always {
-            junit 'test-results/junit.xml'
-        }
+    } finally {
+        junit 'test-results/junit.xml'
     }
 }
