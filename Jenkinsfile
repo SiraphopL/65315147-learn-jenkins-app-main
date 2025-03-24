@@ -1,7 +1,6 @@
 node {
     environment {
         NETLIFY_SITE_ID = '4084bc2b-2632-4a33-8aaa-4435cf4f995b'
-        NETLIFY_AUTH_TOKEN = credentials('netlify-token')  // เปลี่ยนจาก NETLIFY_AUTH
     }
 
     try {
@@ -29,7 +28,7 @@ node {
 
         stage('Deploy') {
             docker.image('node:18-alpine').inside {
-                withEnv(["NETLIFY_AUTH_TOKEN=${NETLIFY_AUTH_TOKEN}", "NETLIFY_SITE_ID=${NETLIFY_SITE_ID}"]) {
+                withCredentials([string(credentialsId: 'netlify-token', variable: 'NETLIFY_AUTH_TOKEN')]) {
                     echo "================Deploying the project================"
                     sh '''
                         npm install -g netlify-cli
