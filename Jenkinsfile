@@ -7,22 +7,12 @@ pipeline {
     }
 
     stages {
-        stage('Setup') {
-            steps {
-                sh '''
-                    echo "================Setting up the environment================"
-                    curl -sL https://deb.nodesource.com/setup_18.x | bash -
-                    apt-get install -y nodejs
-                    node --version
-                    npm --version
-                '''
-            }
-        }
-
         stage('Build') {
             steps {
+                echo "================Building the project================"
                 sh '''
-                    echo "================Building the project================"
+                    node --version
+                    npm --version
                     npm ci
                     npm run build
                 '''
@@ -31,8 +21,8 @@ pipeline {
 
         stage('Test') {
             steps {
+                echo "================Testing the project================"
                 sh '''
-                    echo "================Testing the project================"
                     test -f build/index.html
                     npm test
                 '''
@@ -41,10 +31,10 @@ pipeline {
 
         stage('Deploy') {
             steps {
+                echo "================Deploying the project================"
                 sh '''
                     npm install netlify-cli --save-dev
-                    echo "================Deploying the project================"
-                    node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
+                    ./node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
                 '''
             }
         }
@@ -52,13 +42,7 @@ pipeline {
 
     post {
         always {
-            script {
-                try {
-                    junit 'test-results/junit.xml'
-                } catch (Exception e) {
-                    echo "JUnit result not found or failed to publish: ${e.message}"
-                }
-            }
+            junit 'test-results/junit.xml'
         }
     }
 }
