@@ -33,8 +33,8 @@ node {
                     sh '''
                         echo "NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN"
                         echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
-                        npm install netlify-cli --global --prefix ~/.npm-global
-                        export PATH=~/.npm-global/bin:$PATH
+                        npm install netlify-cli --global --prefix /home/node/.npm-global
+                        export PATH=/home/node/.npm-global/bin:$PATH
                         netlify --version
                         netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
                     '''
