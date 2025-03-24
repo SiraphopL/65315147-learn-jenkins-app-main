@@ -65,15 +65,8 @@ pipeline {
 
     }
     post {
-    always {
-        script {
-            if (fileExists('test-results/junit.xml')) {
-                junit 'test-results/junit.xml'
-            } else {
-                echo 'No test result file found. Skipping junit report.'
-            }
+        always {
+            junit 'test-results/junit.xml'
         }
     }
-}
-
 }
