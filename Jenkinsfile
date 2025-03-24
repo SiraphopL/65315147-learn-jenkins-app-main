@@ -33,6 +33,7 @@ node {
                     sh '''
                         echo "NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN"
                         echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
+                        apk add --no-cache python3 make g++
                         npm install netlify-cli --global --prefix /home/node/.npm-global
                         export PATH=/home/node/.npm-global/bin:$PATH
                         netlify --version
