@@ -7,18 +7,22 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
+        stage('Setup') {
+            steps {
+                sh '''
+                    echo "================Setting up the environment================"
+                    curl -sL https://deb.nodesource.com/setup_18.x | bash -
+                    apt-get install -y nodejs
+                    node --version
+                    npm --version
+                '''
             }
+        }
+
+        stage('Build') {
             steps {
                 sh '''
                     echo "================Building the project================"
-                    node --version
-                    npm --version
                     npm ci
                     npm run build
                 '''
@@ -26,12 +30,6 @@ pipeline {
         }
 
         stage('Test') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 sh '''
                     echo "================Testing the project================"
@@ -42,16 +40,12 @@ pipeline {
         }
 
         stage('Deploy') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 sh '''
                     npm install netlify-cli --save-dev
+                    node_modules/.bin/netlify --version
                     echo "================Deploying the project================"
+                    echo "Deploying to Netlify Site ID: $NETLIFY_SITE_ID"
                     node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
                 '''
             }
@@ -60,13 +54,7 @@ pipeline {
 
     post {
         always {
-            script {
-                try {
-                    junit 'test-results/junit.xml'
-                } catch (Exception e) {
-                    echo "JUnit result not found or failed to publish: ${e.message}"
-                }
-            }
+            junit 'test-results/junit.xml'
         }
     }
 }
