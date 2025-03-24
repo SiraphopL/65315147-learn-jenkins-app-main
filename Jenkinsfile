@@ -29,16 +29,14 @@ node {
         stage('Deploy') {
             docker.image('node:18-alpine').inside {
                 withCredentials([string(credentialsId: 'netlify-token', variable: 'NETLIFY_AUTH_TOKEN')]) {
-                    withEnv(["NETLIFY_SITE_ID=${NETLIFY_SITE_ID}"]) {
-                        echo "================Deploying the project================"
-                        sh '''
-                            echo "NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN"
-                            echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
-                            npm install -g netlify-cli
-                            netlify --version
-                            netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID
-                        '''
-                    }
+                    echo "================Deploying the project================"
+                    sh '''
+                        echo "NETLIFY_AUTH_TOKEN: $NETLIFY_AUTH_TOKEN"
+                        echo "NETLIFY_SITE_ID: $NETLIFY_SITE_ID"
+                        npm install -g netlify-cli
+                        netlify --version
+                        netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN
+                    '''
                 }
             }
         }
