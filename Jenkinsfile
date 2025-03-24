@@ -60,13 +60,12 @@ pipeline {
 
     post {
         always {
+            // ไม่ใช้ fileExists แล้ว แต่ใช้ try-catch เผื่อไม่มีไฟล์ junit.xml
             script {
-                def reportExists = fileExists('test-results/junit.xml')
-                echo "JUnit report exists: ${reportExists}"
-                if (reportExists) {
+                try {
                     junit 'test-results/junit.xml'
-                } else {
-                    echo 'No JUnit test report found. Skipping test publishing.'
+                } catch (Exception e) {
+                    echo "JUnit result not found or failed to publish: ${e.message}"
                 }
             }
         }
