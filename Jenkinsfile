@@ -1,5 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18-alpine'
+            reuseNode true
+        }
+    }
+    ...
+}
 
     environment {
         NETLIFY_SITE_ID = '4084bc2b-2632-4a33-8aaa-4435cf4f995b'
