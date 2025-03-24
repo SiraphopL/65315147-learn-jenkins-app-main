@@ -2,22 +2,15 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const handleClick = () => {
+    alert("ขอบคุณที่กดเข้ามาดูครับ! 😊");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://example.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Jenkins on Udemy 55
-        </a>
-      </header>
-      <p>
-          Application version: 1
-      </p>
+      <h1>👋 สวัสดีครับ ผมชื่อศิรภพ</h1>
+      <p>นี่คือเว็บพอร์ตโฟลิโอง่าย ๆ ที่ทำด้วย React + Jenkins CI/CD</p>
+      <button onClick={handleClick}>กดเพื่อทักทาย</button>
     </div>
   );
 }
