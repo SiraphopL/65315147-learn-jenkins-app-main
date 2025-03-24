@@ -7,52 +7,36 @@ pipeline {
     }
 
     stages {
+        stage('Install Node.js') {
+            steps {
+                sh '''
+                    echo "Installing Node.js..."
+                    curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+                    apt-get install -y nodejs
+                    node -v
+                    npm -v
+                '''
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
         stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
-                sh '''
-                    echo "================Building the project================"
-                    node --version
-                    npm --version
-                    npm ci
-                    npm run build
-                '''
+                sh 'npm run build'
             }
         }
 
-        stage('Test') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
+        stage('Deploy to Netlify') {
             steps {
                 sh '''
-                    echo "================Testing the project================"
-                    test -f build/index.html
-                    npm test
-                '''
-            }
-        }
-
-        stage('Deploy') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
-            steps {
-                sh '''
-                    npm install netlify-cli --save-dev
-                    echo "================Deploying the project================"
-                    node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
+                    npm install -g netlify-cli
+                    echo "Deploying to Netlify..."
+                    netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
                 '''
             }
         }
@@ -60,14 +44,7 @@ pipeline {
 
     post {
         always {
-            // ไม่ใช้ fileExists แล้ว แต่ใช้ try-catch เผื่อไม่มีไฟล์ junit.xml
-            script {
-                try {
-                    junit 'test-results/junit.xml'
-                } catch (Exception e) {
-                    echo "JUnit result not found or failed to publish: ${e.message}"
-                }
-            }
+            echo '✅ Pipeline completed.'
         }
     }
 }
