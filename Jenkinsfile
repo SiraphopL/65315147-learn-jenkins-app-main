@@ -14,7 +14,7 @@ pipeline {
 
     options {
         timestamps() // ⏱ เพิ่ม timestamp ให้ log
-        ansiColor('xterm') // 🎨 สีใน console
+        //ansiColor('xterm') // 🎨 สีใน console
     }
 
     stages {
