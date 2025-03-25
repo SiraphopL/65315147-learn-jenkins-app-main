@@ -9,7 +9,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                script {
+                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git']]])
+                }
             }
         }
 
