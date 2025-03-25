@@ -12,7 +12,7 @@ services:
       - jenkins-net
 
   my-jenkins:
-    image: jenkins/jenkins:lts
+    build: .                         # ⬅️ เปลี่ยนตรงนี้
     container_name: my-jenkins
     restart: always
     ports:
@@ -20,13 +20,14 @@ services:
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock  # ✅ เพิ่มบรรทัดนี้!
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - jenkins-net
     environment:
       - DOCKER_HOST=tcp://jenkins-docker:2376
     depends_on:
       - jenkins-docker
+
 
 
 volumes:
