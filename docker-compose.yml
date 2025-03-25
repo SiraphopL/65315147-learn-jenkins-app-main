@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  jenkins-docker:
+    image: docker:dind
+    container_name: jenkins-docker
+    privileged: true
+    restart: always
+    ports:
+      - "2376:2376"
+    networks:
+      - jenkins-net
+
+  my-jenkins:
+    image: jenkins/jenkins:lts
+    container_name: my-jenkins
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - jenkins-net
+    environment:
+      - DOCKER_HOST=tcp://jenkins-docker:2376
+    depends_on:
+      - jenkins-docker
+
+volumes:
+  jenkins_home:
+
+networks:
+  jenkins-net:
