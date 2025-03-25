@@ -12,7 +12,7 @@ services:
       - jenkins-net
 
   my-jenkins:
-    build: .                         # ⬅️ เปลี่ยนตรงนี้
+    build: .                         # ใช้ Dockerfile ที่คุณสร้างไว้
     container_name: my-jenkins
     restart: always
     ports:
@@ -23,12 +23,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - jenkins-net
-    environment:
-      - DOCKER_HOST=tcp://jenkins-docker:2376
     depends_on:
       - jenkins-docker
-
-
 
 volumes:
   jenkins_home:
