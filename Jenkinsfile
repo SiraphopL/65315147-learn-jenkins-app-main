@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18-alpine'
+            reuseNode true
+        }
+    }
 
     environment {
         NETLIFY_SITE_ID = '4084bc2b-2632-4a33-8aaa-4435cf4f995b'
@@ -14,12 +19,6 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Installing Dependencies================"
                 sh 'npm install'
@@ -27,12 +26,6 @@ pipeline {
         }
 
         stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Building the project================"
                 sh 'npm run build'
@@ -40,12 +33,6 @@ pipeline {
         }
 
         stage('Run Tests') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Running Tests================"
                 sh 'npm test'
@@ -53,20 +40,12 @@ pipeline {
         }
 
         stage('Deploy to Netlify') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
-                script {
-                    echo "================Deploying to Netlify================"
-                    sh '''
-                        npm install netlify-cli --save-dev
-                        ./node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
-                    '''
-                }
+                echo "================Deploying to Netlify================"
+                sh '''
+                    npm install netlify-cli --save-dev
+                    ./node_modules/.bin/netlify deploy --dir=build --prod --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH
+                '''
             }
         }
     }
