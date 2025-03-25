@@ -20,12 +20,14 @@ services:
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # ✅ เพิ่มบรรทัดนี้!
     networks:
       - jenkins-net
     environment:
       - DOCKER_HOST=tcp://jenkins-docker:2376
     depends_on:
       - jenkins-docker
+
 
 volumes:
   jenkins_home:
