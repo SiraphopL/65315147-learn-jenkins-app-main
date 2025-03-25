@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18-alpine'
+            reuseNode true
+        }
+    }
 
     environment {
         NETLIFY_SITE_ID = '4084bc2b-2632-4a33-8aaa-4435cf4f995b'
@@ -9,19 +14,11 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git']]])
-                }
+                echo "✅ Source code already checked out by Jenkins."
             }
         }
 
         stage('Install Dependencies') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Installing Dependencies================"
                 sh 'npm install'
@@ -29,12 +26,6 @@ pipeline {
         }
 
         stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Building the project================"
                 sh 'npm run build'
@@ -42,12 +33,6 @@ pipeline {
         }
 
         stage('Run Tests') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Running Tests================"
                 sh 'npm test'
@@ -55,12 +40,6 @@ pipeline {
         }
 
         stage('Deploy to Netlify') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
             steps {
                 echo "================Deploying to Netlify================"
                 sh '''
