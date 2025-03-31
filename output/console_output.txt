@@ -1,5 +1,4 @@
 Started by user adminSiraphop
-
 Checking out git https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git into /var/jenkins_home/workspace/65315147-learn-jenkins-app@script/9fab6f6f686babe9afe9d28c960e1913ef8eab22edc3428452b305324a32a7ac to read Jenkinsfile
 Selected Git installation does not exist. Using Default
 The recommended git tool is: NONE
@@ -12,16 +11,15 @@ Fetching upstream changes from https://github.com/SiraphopL/65315147-learn-jenki
  > git --version # 'git version 2.39.5'
  > git fetch --tags --force --progress -- https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision 118f396d1b1aaf4cd616ff294f1144ee7bda8767 (refs/remotes/origin/main)
+Checking out Revision a61baf8e257a5741cfc944fec6f9ac535d9a1772 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f 118f396d1b1aaf4cd616ff294f1144ee7bda8767 # timeout=10
-Commit message: "new อีกรอบ"
- > git rev-list --no-walk 96f9d0fcb0e4d738018830d23d64d473be02e1bc # timeout=10
+ > git checkout -f a61baf8e257a5741cfc944fec6f9ac535d9a1772 # timeout=10
+Commit message: "new jen"
+ > git rev-list --no-walk 6cc400001cc76adbfce43bc5902e697b63aabe03 # timeout=10
 [Pipeline] Start of Pipeline
 [Pipeline] getContext
 [Pipeline] node
-Running on Jenkins
- in /var/jenkins_home/workspace/65315147-learn-jenkins-app
+Running on Jenkins in /var/jenkins_home/workspace/65315147-learn-jenkins-app
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Declarative: Checkout SCM)
@@ -37,10 +35,10 @@ Fetching upstream changes from https://github.com/SiraphopL/65315147-learn-jenki
  > git --version # 'git version 2.39.5'
  > git fetch --tags --force --progress -- https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision 118f396d1b1aaf4cd616ff294f1144ee7bda8767 (refs/remotes/origin/main)
+Checking out Revision a61baf8e257a5741cfc944fec6f9ac535d9a1772 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f 118f396d1b1aaf4cd616ff294f1144ee7bda8767 # timeout=10
-Commit message: "new อีกรอบ"
+ > git checkout -f a61baf8e257a5741cfc944fec6f9ac535d9a1772 # timeout=10
+Commit message: "new jen"
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -56,7 +54,7 @@ Commit message: "new อีกรอบ"
 [Pipeline] withDockerContainer
 Jenkins seems to be running inside container 542d4ad0ce86dfb79f59ec6736140ce2932254c84e2c2c3075c50052655dd084
 $ docker run -t -d -u 0:0 -w /var/jenkins_home/workspace/65315147-learn-jenkins-app --volumes-from 542d4ad0ce86dfb79f59ec6736140ce2932254c84e2c2c3075c50052655dd084 -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:18-alpine cat
-$ docker top 1cbbdf2634a5128106bc787ad4b5fb86e804b171367493eace933b95f440bddf -eo pid,comm
+$ docker top b26838ee74ecddc013b9f86f7276d24c1b7b435f44bf8085b679fe09520cc7c6 -eo pid,comm
 [Pipeline] {
 [Pipeline] withCredentials
 Masking supported pattern matches of $NETLIFY_AUTH
@@ -65,211 +63,265 @@ Masking supported pattern matches of $NETLIFY_AUTH
 [Pipeline] {
 [Pipeline] timestamps
 [Pipeline] {
+[Pipeline] timeout
+[2025-03-31T08:06:29.349Z] Timeout set to expire in 30 min
+[Pipeline] {
 [Pipeline] stage
 [Pipeline] { (🧾 Checkout Source Code)
+[Pipeline] checkout
+[2025-03-31T08:06:29.465Z] Selected Git installation does not exist. Using Default
+[2025-03-31T08:06:29.466Z] The recommended git tool is: NONE
+[2025-03-31T08:06:29.466Z] No credentials specified
+[2025-03-31T08:06:29.466Z] Warning: JENKINS-30600: special launcher org.jenkinsci.plugins.docker.workflow.WithContainerStep$Decorator$1@6f2d7c41; decorates hudson.Launcher$LocalLauncher@76462fc9 will be ignored (a typical symptom is the Git executable not being run inside a designated container)
+[2025-03-31T08:06:29.466Z]  > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/65315147-learn-jenkins-app/.git # timeout=10
+[2025-03-31T08:06:29.473Z] Fetching changes from the remote Git repository
+[2025-03-31T08:06:29.476Z]  > git config remote.origin.url https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git # timeout=10
+[2025-03-31T08:06:29.483Z] Fetching upstream changes from https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git
+[2025-03-31T08:06:29.483Z]  > git --version # timeout=10
+[2025-03-31T08:06:29.490Z]  > git --version # 'git version 2.39.5'
+[2025-03-31T08:06:29.490Z]  > git fetch --tags --force --progress -- https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2025-03-31T08:06:30.236Z]  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+[2025-03-31T08:06:30.243Z] Checking out Revision a61baf8e257a5741cfc944fec6f9ac535d9a1772 (refs/remotes/origin/main)
+[2025-03-31T08:06:30.243Z]  > git config core.sparsecheckout # timeout=10
+[2025-03-31T08:06:30.249Z]  > git checkout -f a61baf8e257a5741cfc944fec6f9ac535d9a1772 # timeout=10
+[2025-03-31T08:06:30.273Z] Commit message: "new jen"
 [Pipeline] echo
-15:17:25  [34m✅ Source code already checked out by Jenkins.[0m
+[2025-03-31T08:06:30.294Z] [34m✅ Source code checked out successfully[0m
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (📦 Install Dependencies)
 [Pipeline] echo
-15:17:25  [36m================ Installing Dependencies ================[0m
+[2025-03-31T08:06:30.410Z] [36m================ Installing Dependencies ================[0m
 [Pipeline] sh
-15:17:25  + npm install
-15:17:57  
-15:17:57  added 118 packages, removed 79 packages, changed 171 packages, and audited 2835 packages in 31s
-15:17:57  
-15:17:57  460 packages are looking for funding
-15:17:57    run `npm fund` for details
-15:17:57  
-15:17:57  24 vulnerabilities (16 moderate, 8 high)
-15:17:57  
-15:17:57  To address issues that do not require attention, run:
-15:17:57    npm audit fix
-15:17:57  
-15:17:57  To address all issues (including breaking changes), run:
-15:17:57    npm audit fix --force
-15:17:57  
-15:17:57  Run `npm audit` for details.
+[2025-03-31T08:06:30.680Z] + npm ci --no-audit
+[2025-03-31T08:06:57.086Z] npm warn deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+[2025-03-31T08:06:57.086Z] npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+[2025-03-31T08:06:57.086Z] npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+[2025-03-31T08:06:57.086Z] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[2025-03-31T08:06:57.086Z] npm warn deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+[2025-03-31T08:06:57.086Z] npm warn deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+[2025-03-31T08:06:57.086Z] npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+[2025-03-31T08:06:57.086Z] npm warn deprecated
+[2025-03-31T08:06:57.086Z] npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+[2025-03-31T08:06:57.086Z] npm warn deprecated workbox-google-analytics@6.6.0: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+[2025-03-31T08:07:03.570Z] npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+[2025-03-31T08:07:10.057Z] npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+[2025-03-31T08:07:10.609Z] npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+[2025-03-31T08:07:11.954Z] npm warn deprecated domexception@2.0.1: Use your platform's native DOMException instead
+[2025-03-31T08:07:13.298Z] npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+[2025-03-31T08:07:15.161Z] npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+[2025-03-31T08:07:15.161Z] npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+[2025-03-31T08:07:17.024Z] npm warn deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+[2025-03-31T08:07:17.024Z] npm warn deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+[2025-03-31T08:07:17.024Z] npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+[2025-03-31T08:07:17.024Z] npm warn deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+[2025-03-31T08:07:17.024Z] npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+[2025-03-31T08:07:22.219Z] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[2025-03-31T08:07:36.986Z] npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+[2025-03-31T08:07:58.790Z] 
+[2025-03-31T08:07:58.790Z] added 2832 packages in 1m
+[2025-03-31T08:07:58.790Z] 
+[2025-03-31T08:07:58.790Z] 460 packages are looking for funding
+[2025-03-31T08:07:58.790Z]   run `npm fund` for details
+[Pipeline] sh
+[2025-03-31T08:07:59.128Z] + npm cache clean --force
+[2025-03-31T08:07:59.379Z] npm warn using --force Recommended protections disabled.
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (⚙️ Build Project)
 [Pipeline] echo
-15:17:57  [35m================ Building the Project ================[0m
+[2025-03-31T08:08:01.453Z] [35m================ Building the Project ================[0m
 [Pipeline] sh
-15:17:57  + npm run build
-15:17:58  
-15:17:58  > learn-jenkins-app@0.1.0 build
-15:17:58  > react-scripts build
-15:17:58  
-15:18:00  Creating an optimized production build...
-15:18:10  Compiled successfully.
-15:18:10  
-15:18:10  File sizes after gzip:
-15:18:10  
-15:18:10    47.05 kB  build/static/js/main.b971826b.js
-15:18:10    1.78 kB   build/static/js/453.0e7b4d62.chunk.js
-15:18:10    680 B     build/static/css/main.aa0f6949.css
-15:18:10  
-15:18:10  The project was built assuming it is hosted at /.
-15:18:10  You can control this with the homepage field in your package.json.
-15:18:10  
-15:18:10  The build folder is ready to be deployed.
-15:18:10  You may serve it with a static server:
-15:18:10  
-15:18:10    npm install -g serve
-15:18:10    serve -s build
-15:18:10  
-15:18:10  Find out more about deployment here:
-15:18:10  
-15:18:10    https://cra.link/deployment
-15:18:10  
+[2025-03-31T08:08:01.735Z] + npm run build
+[2025-03-31T08:08:01.986Z] 
+[2025-03-31T08:08:01.986Z] > learn-jenkins-app@0.1.0 build
+[2025-03-31T08:08:01.986Z] > react-scripts build
+[2025-03-31T08:08:01.986Z] 
+[2025-03-31T08:08:04.470Z] Creating an optimized production build...
+[2025-03-31T08:08:09.668Z] [0;33mOne of your dependencies, babel-preset-react-app, is importing the
+[2025-03-31T08:08:09.668Z] "@babel/plugin-proposal-private-property-in-object" package without
+[2025-03-31T08:08:09.668Z] declaring it in its dependencies. This is currently working because
+[2025-03-31T08:08:09.668Z] "@babel/plugin-proposal-private-property-in-object" is already in your
+[2025-03-31T08:08:09.668Z] node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+[2025-03-31T08:08:09.668Z] 
+[2025-03-31T08:08:09.668Z] babel-preset-react-app is part of the create-react-app project, [1mwhich
+[2025-03-31T08:08:09.668Z] is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+[2025-03-31T08:08:09.668Z] ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+[2025-03-31T08:08:09.668Z] your devDependencies to work around this error. This will make this message
+[2025-03-31T08:08:09.668Z] go away.[0m
+[2025-03-31T08:08:09.668Z]   
+[2025-03-31T08:08:17.700Z] Compiled successfully.
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z] File sizes after gzip:
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z]   47.05 kB  build/static/js/main.b971826b.js
+[2025-03-31T08:08:17.700Z]   1.78 kB   build/static/js/453.0e7b4d62.chunk.js
+[2025-03-31T08:08:17.700Z]   680 B     build/static/css/main.aa0f6949.css
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z] The project was built assuming it is hosted at /.
+[2025-03-31T08:08:17.700Z] You can control this with the homepage field in your package.json.
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z] The build folder is ready to be deployed.
+[2025-03-31T08:08:17.700Z] You may serve it with a static server:
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z]   npm install -g serve
+[2025-03-31T08:08:17.700Z]   serve -s build
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z] Find out more about deployment here:
+[2025-03-31T08:08:17.700Z] 
+[2025-03-31T08:08:17.700Z]   https://cra.link/deployment
+[2025-03-31T08:08:17.700Z] 
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] }
+[Pipeline] // script
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (🧪 Run Tests)
 [Pipeline] echo
-15:18:10  [32m================ Running Tests ================[0m
+[2025-03-31T08:08:18.001Z] [32m================ Running Tests ================[0m
 [Pipeline] sh
-15:18:11  + npm test
-15:18:11  
-15:18:11  > learn-jenkins-app@0.1.0 test
-15:18:11  > react-scripts test --testResultsProcessor="jest-junit"
-15:18:11  
-15:18:16    console.error
-15:18:16      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
-15:18:16  
-15:18:16      [0m [90m 3 |[39m
-15:18:16       [90m 4 |[39m test([32m'renders greeting message'[39m[33m,[39m () [33m=>[39m {
-15:18:16      [31m[1m>[22m[39m[90m 5 |[39m   render([33m<[39m[33mApp[39m [33m/[39m[33m>[39m)[33m;[39m
-15:18:16       [90m   |[39m         [31m[1m^[22m[39m
-15:18:16       [90m 6 |[39m   [36mconst[39m greetingElement [33m=[39m screen[33m.[39mgetByText([35m/👩‍🎓 นิสิต: 65315147 นายสิรภพ เล็กเลิศสุนทร/i[39m)[33m;[39m
-15:18:16       [90m 7 |[39m   expect(greetingElement)[33m.[39mtoBeInTheDocument()[33m;[39m
-15:18:16       [90m 8 |[39m })[33m;[39m[0m
-15:18:16  
-15:18:16        at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
-15:18:16        at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
-15:18:16        at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
-15:18:16        at node_modules/@testing-library/react/dist/act-compat.js:63:25
-15:18:16        at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
-15:18:16        at render (node_modules/@testing-library/react/dist/pure.js:246:10)
-15:18:16        at Object.<anonymous> (src/App.test.js:5:9)
-15:18:16        at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-15:18:16        at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-15:18:16        at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-15:18:16        at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
-15:18:16  
-15:18:16  PASS src/App.test.js
-15:18:16    ✓ renders greeting message (160 ms)
-15:18:16  
-15:18:16  Test Suites: 1 passed, 1 total
-15:18:16  Tests:       1 passed, 1 total
-15:18:16  Snapshots:   0 total
-15:18:16  Time:        3.229 s
-15:18:16  Ran all test suites.
-15:18:17  Jest did not exit one second after the test run has completed.
-15:18:17  
-15:18:17  This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
-15:18:17  [0;33mOne of your dependencies, babel-preset-react-app, is importing the
-15:18:17  "@babel/plugin-proposal-private-property-in-object" package without
-15:18:17  declaring it in its dependencies. This is currently working because
-15:18:17  "@babel/plugin-proposal-private-property-in-object" is already in your
-15:18:17  node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
-15:18:17  
-15:18:17  babel-preset-react-app is part of the create-react-app project, [1mwhich
-15:18:17  is not maintianed anymore[0;33m. It is thus unlikely that this bug will
-15:18:17  ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
-15:18:17  your devDependencies to work around this error. This will make this message
-15:18:17  go away.[0m
-15:18:17    
+[2025-03-31T08:08:18.275Z] + npm test -- '--watchAll=false'
+[2025-03-31T08:08:18.526Z] 
+[2025-03-31T08:08:18.526Z] > learn-jenkins-app@0.1.0 test
+[2025-03-31T08:08:18.526Z] > react-scripts test --testResultsProcessor="jest-junit" --watchAll=false
+[2025-03-31T08:08:18.526Z] 
+[2025-03-31T08:08:23.729Z]   console.error
+[2025-03-31T08:08:23.729Z]     Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+[2025-03-31T08:08:23.729Z] 
+[2025-03-31T08:08:23.729Z]     [0m [90m 3 |[39m
+[2025-03-31T08:08:23.729Z]      [90m 4 |[39m test([32m'renders greeting message'[39m[33m,[39m () [33m=>[39m {
+[2025-03-31T08:08:23.729Z]     [31m[1m>[22m[39m[90m 5 |[39m   render([33m<[39m[33mApp[39m [33m/[39m[33m>[39m)[33m;[39m
+[2025-03-31T08:08:23.729Z]      [90m   |[39m         [31m[1m^[22m[39m
+[2025-03-31T08:08:23.729Z]      [90m 6 |[39m   [36mconst[39m greetingElement [33m=[39m screen[33m.[39mgetByText([35m/👩‍🎓 นิสิต: 65315147 นายสิรภพ เล็กเลิศสุนทร/i[39m)[33m;[39m
+[2025-03-31T08:08:23.729Z]      [90m 7 |[39m   expect(greetingElement)[33m.[39mtoBeInTheDocument()[33m;[39m
+[2025-03-31T08:08:23.729Z]      [90m 8 |[39m })[33m;[39m[0m
+[2025-03-31T08:08:23.729Z] 
+[2025-03-31T08:08:23.729Z]       at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+[2025-03-31T08:08:23.729Z]       at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+[2025-03-31T08:08:23.729Z]       at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+[2025-03-31T08:08:23.729Z]       at node_modules/@testing-library/react/dist/act-compat.js:63:25
+[2025-03-31T08:08:23.730Z]       at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+[2025-03-31T08:08:23.730Z]       at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+[2025-03-31T08:08:23.730Z]       at Object.<anonymous> (src/App.test.js:5:9)
+[2025-03-31T08:08:23.730Z]       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+[2025-03-31T08:08:23.730Z]       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+[2025-03-31T08:08:23.730Z]       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+[2025-03-31T08:08:23.730Z]       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+[2025-03-31T08:08:23.730Z] 
+[2025-03-31T08:08:23.730Z] PASS src/App.test.js
+[2025-03-31T08:08:23.730Z]   ✓ renders greeting message (161 ms)
+[2025-03-31T08:08:23.730Z] 
+[2025-03-31T08:08:23.730Z] Test Suites: 1 passed, 1 total
+[2025-03-31T08:08:23.730Z] Tests:       1 passed, 1 total
+[2025-03-31T08:08:23.730Z] Snapshots:   0 total
+[2025-03-31T08:08:23.730Z] Time:        3.293 s
+[2025-03-31T08:08:23.730Z] Ran all test suites.
+[2025-03-31T08:08:24.642Z] Jest did not exit one second after the test run has completed.
+[2025-03-31T08:08:24.642Z] 
+[2025-03-31T08:08:24.642Z] This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+[2025-03-31T08:08:24.642Z] [0;33mOne of your dependencies, babel-preset-react-app, is importing the
+[2025-03-31T08:08:24.642Z] "@babel/plugin-proposal-private-property-in-object" package without
+[2025-03-31T08:08:24.642Z] declaring it in its dependencies. This is currently working because
+[2025-03-31T08:08:24.642Z] "@babel/plugin-proposal-private-property-in-object" is already in your
+[2025-03-31T08:08:24.642Z] node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+[2025-03-31T08:08:24.642Z] 
+[2025-03-31T08:08:24.642Z] babel-preset-react-app is part of the create-react-app project, [1mwhich
+[2025-03-31T08:08:24.642Z] is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+[2025-03-31T08:08:24.642Z] ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+[2025-03-31T08:08:24.642Z] your devDependencies to work around this error. This will make this message
+[2025-03-31T08:08:24.642Z] go away.[0m
+[2025-03-31T08:08:24.642Z]   
+Post stage
+[Pipeline] junit
+[2025-03-31T08:08:24.680Z] Recording test results
+[2025-03-31T08:08:26.525Z] [Checks API] No suitable checks publisher found.
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (🚀 Deploy to Netlify)
 [Pipeline] echo
-15:18:17  [33m================ Deploying to Netlify ================[0m
+[2025-03-31T08:08:26.720Z] [33m================ Deploying to Netlify ================[0m
+[Pipeline] script
+[Pipeline] {
 [Pipeline] sh
-15:18:17  + npm install netlify-cli --save-dev
-15:18:23  npm warn idealTree Removing dependencies.netlify-cli in favor of devDependencies.netlify-cli
-15:18:55  
-15:18:55  added 79 packages, removed 118 packages, changed 171 packages, and audited 2797 packages in 34s
-15:18:55  
-15:18:55  457 packages are looking for funding
-15:18:55    run `npm fund` for details
-15:18:55  
-15:18:55  18 vulnerabilities (10 moderate, 8 high)
-15:18:55  
-15:18:55  To address issues that do not require attention, run:
-15:18:55    npm audit fix
-15:18:55  
-15:18:55  To address all issues (including breaking changes), run:
-15:18:55    npm audit fix --force
-15:18:55  
-15:18:55  Run `npm audit` for details.
-15:18:55  + ./node_modules/.bin/netlify deploy '--dir=build' --prod '--site=4084bc2b-2632-4a33-8aaa-4435cf4f995b' '--auth=****'
-15:19:04  Deploy path: /var/jenkins_home/workspace/65315147-learn-jenkins-app/build
-15:19:04  Deploying to main site URL...
-15:19:05  [33m⠋[39m Uploading blobs to deploy store...
-15:19:05  
-15:19:05  ​
-15:19:05  Netlify Build                                                 
-15:19:05  ────────────────────────────────────────────────────────────────
-15:19:05  ​
-15:19:05  ❯ Version
-15:19:05    @netlify/build 30.0.3
-15:19:05  ​
-15:19:05  ❯ Flags
-15:19:05    auth: ****
-15:19:05    deployId: 67e266f8f0ee64b8655c2238
-15:19:05    dir: build
-15:19:05    open: false
-15:19:05    prod: true
-15:19:05    prodIfUnlocked: false
-15:19:05    site: 4084bc2b-2632-4a33-8aaa-4435cf4f995b
-15:19:05    skipFunctionsCache: false
-15:19:05  ​
-15:19:05  ❯ Current directory
-15:19:05    /var/jenkins_home/workspace/65315147-learn-jenkins-app
-15:19:05  ​
-15:19:05  ❯ Config file
-15:19:05    No config file was defined: using default values.
-15:19:05  ​
-15:19:05  ❯ Context
-15:19:05    dev
-15:19:05  [33m⠙[39m Finished uploading blobs to deploy store
-15:19:05  [33m⠋[39m Hashing files...
-15:19:05  [33m⠋[39m Looking for a functions cache...
-15:19:05  [33m⠙[39m No cached functions were found
-15:19:05  [33m⠙[39m Finished hashing 
-15:19:05  [33m⠋[39m CDN diffing files...
-15:19:06  [33m⠙[39m CDN requesting 0 files
-15:19:06  [33m⠋[39m Uploading 0 files
-15:19:06  [33m⠙[39m Finished uploading 0 assets
-15:19:06  [33m⠋[39m Waiting for deploy to go live...
-15:19:09  [33m⠙[39m Deploy is live!
-15:19:09  
-15:19:09  Build logs:         https://app.netlify.com/sites/65315147-my-project/deploys/67e266f8f0ee64b8655c2238
-15:19:09  Function logs:      https://app.netlify.com/sites/65315147-my-project/logs/functions
-15:19:09  Edge function Logs: https://app.netlify.com/sites/65315147-my-project/logs/edge-functions
-15:19:09  Unique deploy URL:  https://67e266f8f0ee64b8655c2238--65315147-my-project.netlify.app
-15:19:09  Website URL:        https://65315147-my-project.netlify.app
+[2025-03-31T08:08:27.034Z] + npm install -g netlify-cli
+[2025-03-31T08:08:41.799Z] npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+[2025-03-31T08:08:41.799Z] npm warn deprecated npmlog@5.0.1: This package is no longer supported.
+[2025-03-31T08:08:43.144Z] npm warn deprecated gauge@3.0.2: This package is no longer supported.
+[2025-03-31T08:08:44.488Z] npm warn deprecated are-we-there-yet@2.0.0: This package is no longer supported.
+[2025-03-31T08:08:50.973Z] npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supported
+[2025-03-31T08:09:05.741Z] 
+[2025-03-31T08:09:05.741Z] added 1170 packages in 38s
+[2025-03-31T08:09:05.741Z] 
+[2025-03-31T08:09:05.741Z] 250 packages are looking for funding
+[2025-03-31T08:09:05.741Z]   run `npm fund` for details
+[Pipeline] sh
+[2025-03-31T08:09:06.086Z] + netlify deploy '--dir=build' --prod '--site=4084bc2b-2632-4a33-8aaa-4435cf4f995b' '--auth=****'
+[2025-03-31T08:09:18.188Z] Deploy path: /var/jenkins_home/workspace/65315147-learn-jenkins-app/build
+[2025-03-31T08:09:18.188Z] Deploying to main site URL...
+[2025-03-31T08:09:19.100Z] [33m⠋[39m Uploading blobs to deploy store...
+[2025-03-31T08:09:19.100Z] 
+[2025-03-31T08:09:19.100Z] ​
+[2025-03-31T08:09:19.100Z] Netlify Build                                                 
+[2025-03-31T08:09:19.100Z] ────────────────────────────────────────────────────────────────
+[2025-03-31T08:09:19.100Z] ​
+[2025-03-31T08:09:19.100Z] ❯ Version
+[2025-03-31T08:09:19.100Z]   @netlify/build 30.0.6
+[2025-03-31T08:09:19.100Z] ​
+[2025-03-31T08:09:19.100Z] ❯ Flags
+[2025-03-31T08:09:19.100Z]   auth: ****
+[2025-03-31T08:09:19.100Z]   deployId: 67ea4dadf55cc02418f740e9
+[2025-03-31T08:09:19.100Z]   dir: build
+[2025-03-31T08:09:19.100Z]   open: false
+[2025-03-31T08:09:19.100Z]   prod: true
+[2025-03-31T08:09:19.100Z]   prodIfUnlocked: false
+[2025-03-31T08:09:19.100Z]   site: 4084bc2b-2632-4a33-8aaa-4435cf4f995b
+[2025-03-31T08:09:19.100Z]   skipFunctionsCache: false
+[2025-03-31T08:09:19.100Z] ​
+[2025-03-31T08:09:19.100Z] ❯ Current directory
+[2025-03-31T08:09:19.100Z]   /var/jenkins_home/workspace/65315147-learn-jenkins-app
+[2025-03-31T08:09:19.100Z] ​
+[2025-03-31T08:09:19.100Z] ❯ Config file
+[2025-03-31T08:09:19.100Z]   No config file was defined: using default values.
+[2025-03-31T08:09:19.100Z] ​
+[2025-03-31T08:09:19.100Z] ❯ Context
+[2025-03-31T08:09:19.100Z]   dev
+[2025-03-31T08:09:19.101Z] [33m⠙[39m Finished uploading blobs to deploy store
+[2025-03-31T08:09:19.101Z] [33m⠋[39m Hashing files...
+[2025-03-31T08:09:19.101Z] [33m⠋[39m Looking for a functions cache...
+[2025-03-31T08:09:19.101Z] [33m⠙[39m No cached functions were found
+[2025-03-31T08:09:19.101Z] [33m⠙[39m Finished hashing 
+[2025-03-31T08:09:19.101Z] [33m⠋[39m CDN diffing files...
+[2025-03-31T08:09:20.013Z] [33m⠙[39m CDN requesting 0 files
+[2025-03-31T08:09:20.013Z] [33m⠋[39m Uploading 0 files
+[2025-03-31T08:09:20.013Z] [33m⠙[39m Finished uploading 0 assets
+[2025-03-31T08:09:20.013Z] [33m⠋[39m Waiting for deploy to go live...
+[2025-03-31T08:09:20.924Z] [33m⠙[39m Deploy is live!
+[2025-03-31T08:09:20.924Z] 
+[2025-03-31T08:09:20.924Z] Build logs:         https://app.netlify.com/sites/65315147-my-project/deploys/67ea4dadf55cc02418f740e9
+[2025-03-31T08:09:20.924Z] Function logs:      https://app.netlify.com/sites/65315147-my-project/logs/functions
+[2025-03-31T08:09:20.925Z] Edge function Logs: https://app.netlify.com/sites/65315147-my-project/logs/edge-functions
+[2025-03-31T08:09:20.925Z] Unique deploy URL:  https://67ea4dadf55cc02418f740e9--65315147-my-project.netlify.app
+[2025-03-31T08:09:20.925Z] Website URL:        https://65315147-my-project.netlify.app
+[Pipeline] }
+[Pipeline] // script
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (Declarative: Post Actions)
-[Pipeline] script
-[Pipeline] {
-[Pipeline] junit
-15:19:09  Recording test results
-15:19:11  [Checks API] No suitable checks publisher found.
-[Pipeline] }
-[Pipeline] // script
 [Pipeline] echo
-15:19:11  [32m🎉 Build & Deploy Success![0m
+[2025-03-31T08:09:21.121Z] [32m🎉 Build & Deploy Success![0m
+[Pipeline] sh
+[2025-03-31T08:09:21.408Z] + rm -rf node_modules
 [Pipeline] }
 [Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
 [Pipeline] }
 [Pipeline] // timestamps
 [Pipeline] }
@@ -277,8 +329,8 @@ Masking supported pattern matches of $NETLIFY_AUTH
 [Pipeline] }
 [Pipeline] // withCredentials
 [Pipeline] }
-$ docker stop --time=1 1cbbdf2634a5128106bc787ad4b5fb86e804b171367493eace933b95f440bddf
-$ docker rm -f --volumes 1cbbdf2634a5128106bc787ad4b5fb86e804b171367493eace933b95f440bddf
+$ docker stop --time=1 b26838ee74ecddc013b9f86f7276d24c1b7b435f44bf8085b679fe09520cc7c6
+$ docker rm -f --volumes b26838ee74ecddc013b9f86f7276d24c1b7b435f44bf8085b679fe09520cc7c6
 [Pipeline] // withDockerContainer
 [Pipeline] }
 [Pipeline] // withEnv
