@@ -1,0 +1,288 @@
+Started by user adminSiraphop
+
+Checking out git https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git into /var/jenkins_home/workspace/65315147-learn-jenkins-app@script/9fab6f6f686babe9afe9d28c960e1913ef8eab22edc3428452b305324a32a7ac to read Jenkinsfile
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/65315147-learn-jenkins-app@script/9fab6f6f686babe9afe9d28c960e1913ef8eab22edc3428452b305324a32a7ac/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git # timeout=10
+Fetching upstream changes from https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 118f396d1b1aaf4cd616ff294f1144ee7bda8767 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 118f396d1b1aaf4cd616ff294f1144ee7bda8767 # timeout=10
+Commit message: "new อีกรอบ"
+ > git rev-list --no-walk 96f9d0fcb0e4d738018830d23d64d473be02e1bc # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] getContext
+[Pipeline] node
+Running on Jenkins
+ in /var/jenkins_home/workspace/65315147-learn-jenkins-app
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/65315147-learn-jenkins-app/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git # timeout=10
+Fetching upstream changes from https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.5'
+ > git fetch --tags --force --progress -- https://github.com/SiraphopL/65315147-learn-jenkins-app-main.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 118f396d1b1aaf4cd616ff294f1144ee7bda8767 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 118f396d1b1aaf4cd616ff294f1144ee7bda8767 # timeout=10
+Commit message: "new อีกรอบ"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:18-alpine
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins seems to be running inside container 542d4ad0ce86dfb79f59ec6736140ce2932254c84e2c2c3075c50052655dd084
+$ docker run -t -d -u 0:0 -w /var/jenkins_home/workspace/65315147-learn-jenkins-app --volumes-from 542d4ad0ce86dfb79f59ec6736140ce2932254c84e2c2c3075c50052655dd084 -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:18-alpine cat
+$ docker top 1cbbdf2634a5128106bc787ad4b5fb86e804b171367493eace933b95f440bddf -eo pid,comm
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $NETLIFY_AUTH
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (🧾 Checkout Source Code)
+[Pipeline] echo
+15:17:25  [34m✅ Source code already checked out by Jenkins.[0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (📦 Install Dependencies)
+[Pipeline] echo
+15:17:25  [36m================ Installing Dependencies ================[0m
+[Pipeline] sh
+15:17:25  + npm install
+15:17:57  
+15:17:57  added 118 packages, removed 79 packages, changed 171 packages, and audited 2835 packages in 31s
+15:17:57  
+15:17:57  460 packages are looking for funding
+15:17:57    run `npm fund` for details
+15:17:57  
+15:17:57  24 vulnerabilities (16 moderate, 8 high)
+15:17:57  
+15:17:57  To address issues that do not require attention, run:
+15:17:57    npm audit fix
+15:17:57  
+15:17:57  To address all issues (including breaking changes), run:
+15:17:57    npm audit fix --force
+15:17:57  
+15:17:57  Run `npm audit` for details.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (⚙️ Build Project)
+[Pipeline] echo
+15:17:57  [35m================ Building the Project ================[0m
+[Pipeline] sh
+15:17:57  + npm run build
+15:17:58  
+15:17:58  > learn-jenkins-app@0.1.0 build
+15:17:58  > react-scripts build
+15:17:58  
+15:18:00  Creating an optimized production build...
+15:18:10  Compiled successfully.
+15:18:10  
+15:18:10  File sizes after gzip:
+15:18:10  
+15:18:10    47.05 kB  build/static/js/main.b971826b.js
+15:18:10    1.78 kB   build/static/js/453.0e7b4d62.chunk.js
+15:18:10    680 B     build/static/css/main.aa0f6949.css
+15:18:10  
+15:18:10  The project was built assuming it is hosted at /.
+15:18:10  You can control this with the homepage field in your package.json.
+15:18:10  
+15:18:10  The build folder is ready to be deployed.
+15:18:10  You may serve it with a static server:
+15:18:10  
+15:18:10    npm install -g serve
+15:18:10    serve -s build
+15:18:10  
+15:18:10  Find out more about deployment here:
+15:18:10  
+15:18:10    https://cra.link/deployment
+15:18:10  
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (🧪 Run Tests)
+[Pipeline] echo
+15:18:10  [32m================ Running Tests ================[0m
+[Pipeline] sh
+15:18:11  + npm test
+15:18:11  
+15:18:11  > learn-jenkins-app@0.1.0 test
+15:18:11  > react-scripts test --testResultsProcessor="jest-junit"
+15:18:11  
+15:18:16    console.error
+15:18:16      Warning: `ReactDOMTestUtils.act` is deprecated in favor of `React.act`. Import `act` from `react` instead of `react-dom/test-utils`. See https://react.dev/warnings/react-dom-test-utils for more info.
+15:18:16  
+15:18:16      [0m [90m 3 |[39m
+15:18:16       [90m 4 |[39m test([32m'renders greeting message'[39m[33m,[39m () [33m=>[39m {
+15:18:16      [31m[1m>[22m[39m[90m 5 |[39m   render([33m<[39m[33mApp[39m [33m/[39m[33m>[39m)[33m;[39m
+15:18:16       [90m   |[39m         [31m[1m^[22m[39m
+15:18:16       [90m 6 |[39m   [36mconst[39m greetingElement [33m=[39m screen[33m.[39mgetByText([35m/👩‍🎓 นิสิต: 65315147 นายสิรภพ เล็กเลิศสุนทร/i[39m)[33m;[39m
+15:18:16       [90m 7 |[39m   expect(greetingElement)[33m.[39mtoBeInTheDocument()[33m;[39m
+15:18:16       [90m 8 |[39m })[33m;[39m[0m
+15:18:16  
+15:18:16        at printWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:71:30)
+15:18:16        at error (node_modules/react-dom/cjs/react-dom-test-utils.development.js:45:7)
+15:18:16        at actWithWarning (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1736:7)
+15:18:16        at node_modules/@testing-library/react/dist/act-compat.js:63:25
+15:18:16        at renderRoot (node_modules/@testing-library/react/dist/pure.js:159:26)
+15:18:16        at render (node_modules/@testing-library/react/dist/pure.js:246:10)
+15:18:16        at Object.<anonymous> (src/App.test.js:5:9)
+15:18:16        at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+15:18:16        at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+15:18:16        at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+15:18:16        at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+15:18:16  
+15:18:16  PASS src/App.test.js
+15:18:16    ✓ renders greeting message (160 ms)
+15:18:16  
+15:18:16  Test Suites: 1 passed, 1 total
+15:18:16  Tests:       1 passed, 1 total
+15:18:16  Snapshots:   0 total
+15:18:16  Time:        3.229 s
+15:18:16  Ran all test suites.
+15:18:17  Jest did not exit one second after the test run has completed.
+15:18:17  
+15:18:17  This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.
+15:18:17  [0;33mOne of your dependencies, babel-preset-react-app, is importing the
+15:18:17  "@babel/plugin-proposal-private-property-in-object" package without
+15:18:17  declaring it in its dependencies. This is currently working because
+15:18:17  "@babel/plugin-proposal-private-property-in-object" is already in your
+15:18:17  node_modules folder for unrelated reasons, but it [1mmay break at any time[0;33m.
+15:18:17  
+15:18:17  babel-preset-react-app is part of the create-react-app project, [1mwhich
+15:18:17  is not maintianed anymore[0;33m. It is thus unlikely that this bug will
+15:18:17  ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+15:18:17  your devDependencies to work around this error. This will make this message
+15:18:17  go away.[0m
+15:18:17    
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (🚀 Deploy to Netlify)
+[Pipeline] echo
+15:18:17  [33m================ Deploying to Netlify ================[0m
+[Pipeline] sh
+15:18:17  + npm install netlify-cli --save-dev
+15:18:23  npm warn idealTree Removing dependencies.netlify-cli in favor of devDependencies.netlify-cli
+15:18:55  
+15:18:55  added 79 packages, removed 118 packages, changed 171 packages, and audited 2797 packages in 34s
+15:18:55  
+15:18:55  457 packages are looking for funding
+15:18:55    run `npm fund` for details
+15:18:55  
+15:18:55  18 vulnerabilities (10 moderate, 8 high)
+15:18:55  
+15:18:55  To address issues that do not require attention, run:
+15:18:55    npm audit fix
+15:18:55  
+15:18:55  To address all issues (including breaking changes), run:
+15:18:55    npm audit fix --force
+15:18:55  
+15:18:55  Run `npm audit` for details.
+15:18:55  + ./node_modules/.bin/netlify deploy '--dir=build' --prod '--site=4084bc2b-2632-4a33-8aaa-4435cf4f995b' '--auth=****'
+15:19:04  Deploy path: /var/jenkins_home/workspace/65315147-learn-jenkins-app/build
+15:19:04  Deploying to main site URL...
+15:19:05  [33m⠋[39m Uploading blobs to deploy store...
+15:19:05  
+15:19:05  ​
+15:19:05  Netlify Build                                                 
+15:19:05  ────────────────────────────────────────────────────────────────
+15:19:05  ​
+15:19:05  ❯ Version
+15:19:05    @netlify/build 30.0.3
+15:19:05  ​
+15:19:05  ❯ Flags
+15:19:05    auth: ****
+15:19:05    deployId: 67e266f8f0ee64b8655c2238
+15:19:05    dir: build
+15:19:05    open: false
+15:19:05    prod: true
+15:19:05    prodIfUnlocked: false
+15:19:05    site: 4084bc2b-2632-4a33-8aaa-4435cf4f995b
+15:19:05    skipFunctionsCache: false
+15:19:05  ​
+15:19:05  ❯ Current directory
+15:19:05    /var/jenkins_home/workspace/65315147-learn-jenkins-app
+15:19:05  ​
+15:19:05  ❯ Config file
+15:19:05    No config file was defined: using default values.
+15:19:05  ​
+15:19:05  ❯ Context
+15:19:05    dev
+15:19:05  [33m⠙[39m Finished uploading blobs to deploy store
+15:19:05  [33m⠋[39m Hashing files...
+15:19:05  [33m⠋[39m Looking for a functions cache...
+15:19:05  [33m⠙[39m No cached functions were found
+15:19:05  [33m⠙[39m Finished hashing 
+15:19:05  [33m⠋[39m CDN diffing files...
+15:19:06  [33m⠙[39m CDN requesting 0 files
+15:19:06  [33m⠋[39m Uploading 0 files
+15:19:06  [33m⠙[39m Finished uploading 0 assets
+15:19:06  [33m⠋[39m Waiting for deploy to go live...
+15:19:09  [33m⠙[39m Deploy is live!
+15:19:09  
+15:19:09  Build logs:         https://app.netlify.com/sites/65315147-my-project/deploys/67e266f8f0ee64b8655c2238
+15:19:09  Function logs:      https://app.netlify.com/sites/65315147-my-project/logs/functions
+15:19:09  Edge function Logs: https://app.netlify.com/sites/65315147-my-project/logs/edge-functions
+15:19:09  Unique deploy URL:  https://67e266f8f0ee64b8655c2238--65315147-my-project.netlify.app
+15:19:09  Website URL:        https://65315147-my-project.netlify.app
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] junit
+15:19:09  Recording test results
+15:19:11  [Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] echo
+15:19:11  [32m🎉 Build & Deploy Success![0m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+$ docker stop --time=1 1cbbdf2634a5128106bc787ad4b5fb86e804b171367493eace933b95f440bddf
+$ docker rm -f --volumes 1cbbdf2634a5128106bc787ad4b5fb86e804b171367493eace933b95f440bddf
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
